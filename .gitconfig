@@ -7,3 +7,5 @@
   email = hwiegard@gmail.com
 [core]
 	autocrlf = input
+[push]
+	default = simple
