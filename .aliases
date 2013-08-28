@@ -1,0 +1,15 @@
+# cat with beautiful colors. requires Pygments installed.
+#      sudo easy_install Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+type -t md5sum > /dev/null || alias md5sum="md5"
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+alias ll='ls -alF'
+alias \+='pushd .'
+alias -- -='popd'
+alias ..='cd ..'
+alias jpp='python -mjson.tool | pygmentize -l json'
