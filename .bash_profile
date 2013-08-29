@@ -1,5 +1,3 @@
-. `brew --prefix`/etc/profile.d/z.sh
-
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
@@ -7,9 +5,11 @@ for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
-#source ~/.git-prompt.sh
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if test "$(uname)" == "Darwin" ; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+    . `brew --prefix`/etc/profile.d/z.sh
 fi
 
 # Terminal line wrapping
