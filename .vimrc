@@ -57,8 +57,13 @@ set visualbell
 " set buffer encoding to utf-8 without BOM
 set encoding=utf-8 nobomb
 
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
 execute pathogen#infect()
 filetype plugin indent on
+
+autocmd filetype python set expandtab
 
 " now configure the statusline
 set laststatus=2
