@@ -1,6 +1,15 @@
 " Make vim more useful
 set nocompatible
 
+" Set syntax highlighting options.
+set t_Co=256
+set background=dark
+syntax on
+colorscheme badwolf
+
+" Enabled later, after Pathogen
+filetype off
+
 " size of a hard tabstop
 set tabstop=4
 
@@ -20,9 +29,6 @@ set number
 
 " highlight current line
 set cursorline
-
-" 256 color mode
-set t_Co=256
 
 " incremental search and some more search features
 set incsearch
@@ -48,17 +54,11 @@ set ttyfast
 set noerrorbells
 set visualbell
 
-" syntax highlighting
-syntax on
-
-" configure color scheme
-set background=dark
-colorscheme badwolf
-
 " set buffer encoding to utf-8 without BOM
 set encoding=utf-8 nobomb
 
-call pathogen#infect()
+execute pathogen#infect()
+filetype plugin indent on
 
 " now configure the statusline
 set laststatus=2
