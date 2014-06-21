@@ -2,7 +2,7 @@
   # For username / creds / etc
   path = ~/.gitconfig.local
 [color]
-	ui = always
+	ui = true
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
