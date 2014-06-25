@@ -68,3 +68,6 @@ autocmd filetype python set expandtab
 " now configure the statusline
 set laststatus=2
 set statusline=%F\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
+
+" treat gradle as groovy syntax
+au BufNewFile,BufRead *.gradle setf groovy
