@@ -31,4 +31,6 @@ if [ "$TERM" != "dumb" ]; then
     export LS_OPTIONS='--color=auto'
 fi
 
-eval "$(rbenv init -)"
+if which rbenv 2>/dev/null; then
+    eval "$(rbenv init -)"
+fi
