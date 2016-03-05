@@ -28,11 +28,14 @@ bind "set completion-map-case on"
 # Display matches for ambiguous patterns at the first tab press
 bind "set show-if-ambiguous on"
 
-# Append to the history file, don't overwirte it
-shopt histappend
+# Append to the history file, don't overwrirte it
+shopt -s histappend
 
 # Save multi-line commands as one command
 shopt -s cmdhist
+
+# Record each line as it gets issued
+PROMPT_COMMAND='history -a'
 
 # Avoid duplicate entries
 HISTCONTROL="erasedups:ignoreboth"
