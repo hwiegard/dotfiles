@@ -2,7 +2,6 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
@@ -19,6 +18,30 @@ fi
 
 # Terminal line wrapping
 shopt -s checkwinsize
+
+# Perform file completion in a case insensitive fashion
+bind "set completion-ignore-case on"
+
+# Treat hypthens and underscores as equivalent
+bind "set completion-map-case on"
+
+# Display matches for ambiguous patterns at the first tab press
+bind "set show-if-ambiguous on"
+
+# Append to the history file, don't overwirte it
+shopt histappend
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+
+# Useful timestamp format
+HISTTIMEFORMAT='%F %T '
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
