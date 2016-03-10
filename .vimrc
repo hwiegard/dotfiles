@@ -18,6 +18,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set backspace=indent,eol,start
+set complete-=i
 
 " make "tab" insert indents instead of tabs at the beginning of a line
 set smarttab
