@@ -34,7 +34,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Record each line as it gets issued
-export PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Avoid duplicate entries
 export HISTCONTROL="erasedups:ignoreboth"
