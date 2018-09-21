@@ -34,16 +34,20 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Record each line as it gets issued
-PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND='history -a'
 
 # Avoid duplicate entries
-HISTCONTROL="erasedups:ignoreboth"
+export HISTCONTROL="erasedups:ignoreboth"
 
 # Don't record some commands
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 
 # Useful timestamp format
-HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT='%F %T '
+
+# history size
+export HISTFILESIZE=1000000
+export HISTSIZE=5000
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
