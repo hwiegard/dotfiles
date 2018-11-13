@@ -5,7 +5,7 @@ fi
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
-    [ -r "$file" ] && source "$file"
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done
 unset file
 
@@ -25,13 +25,23 @@ bind "set completion-ignore-case on"
 bind "set completion-map-case on"
 
 # Display matches for ambiguous patterns at the first tab press
-bind "set show-if-ambiguous on"
+bind "set show-all-if-ambiguous on"
 
 # Append to the history file, don't overwrirte it
 shopt -s histappend
 
 # Save multi-line commands as one command
 shopt -s cmdhist
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Enable some Bash 4 features when possible:
+# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+# * Recursive globbing, e.g. `echo **/*.txt`
+for option in autocd globstar; do
+	shopt -s "$option" 2> /dev/null;
+done;
 
 # Record each line as it gets issued
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
