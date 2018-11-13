@@ -13,3 +13,15 @@ alias \+='pushd .'
 alias -- -='popd'
 alias ..='cd ..'
 alias jpp='python -mjson.tool | pygmentize -l json'
+
+## dcu == Docker-Compose Up
+alias dcu='docker-compose up -d --remove-orphans'
+
+## dcl == Docker-Compose Logs
+alias dcl='docker-compose logs'
+
+## dcs == Docker-Compose Stop
+alias dcs='docker-compose stop'
+
+## dcp == Docker-Compose process status
+alias dcp='docker-compose ps'
