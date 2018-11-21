@@ -24,6 +24,7 @@
 	attributesfile = ~/.gitattributes
 [core]
 	autocrlf = input
+	editor = vim
 [push]
 	default = simple
 [rebase]
