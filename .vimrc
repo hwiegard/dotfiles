@@ -2,14 +2,16 @@
 set nocompatible
 
 " Set syntax highlighting options.
-set t_Co=256
-set background=dark
+set termguicolors
 syntax on
-let g:rehash256=1
-colorscheme molokai
+colorscheme monokai
+
+" we also allow italic fonts
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
 
 " Enabled later, after Pathogen
-filetype off
+filetype on
 
 " size of a hard tabstop
 set tabstop=4
@@ -63,14 +65,20 @@ set encoding=utf-8 nobomb
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-execute pathogen#infect()
-filetype plugin indent on
-
 autocmd filetype python set expandtab
+
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+" Initialize plugin system
+call plug#end()
+
+let g:lightline = {
+      \ 'colorscheme': 'molokai',
+      \ }
 
 " now configure the statusline
 set laststatus=2
-set statusline=%F\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
+"set statusline=%F\ %m\ \ %y%=%l,%c\ %P
 
 " treat gradle as groovy syntax
 au BufNewFile,BufRead *.gradle setf groovy
