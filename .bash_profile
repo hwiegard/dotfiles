@@ -70,6 +70,10 @@ if [ "$TERM" != "dumb" ]; then
     export LS_OPTIONS='--color=auto'
 fi
 
-if which rbenv 2>/dev/null; then
+if which rbenv >/dev/null; then
     eval "$(rbenv init -)"
+fi
+
+if which pipenv >/dev/null; then
+    eval "$(pipenv --completion)"
 fi
