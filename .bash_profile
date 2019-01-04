@@ -73,7 +73,3 @@ fi
 if which rbenv >/dev/null; then
     eval "$(rbenv init -)"
 fi
-
-if which pipenv >/dev/null; then
-    eval "$(pipenv --completion)"
-fi
