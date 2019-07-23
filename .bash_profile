@@ -62,6 +62,8 @@ export HISTSIZE=5000
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
+export LANG=en_US.UTF-8
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
