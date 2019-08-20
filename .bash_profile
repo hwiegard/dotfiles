@@ -3,6 +3,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 PROMPT_USER_COLOR="$(tput bold)$(tput setaf 9)" # BOLD RED
+PROMPT_DIR_COLOR="$(tput bold)$(tput setaf 39)" # BOLD RED
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
