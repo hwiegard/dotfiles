@@ -1,7 +1,3 @@
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
-
 PROMPT_USER_COLOR="$(tput bold)$(tput setaf 9)" # BOLD RED
 PROMPT_DIR_COLOR="$(tput bold)$(tput setaf 39)" # BOLD RED
 
@@ -38,6 +34,9 @@ shopt -s cmdhist
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
