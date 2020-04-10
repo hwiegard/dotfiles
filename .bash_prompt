@@ -259,7 +259,8 @@ sexy_bash_prompt_get_git_info () {
 
 # Define the sexy-bash-prompt
   if [[ -n $SSH_CLIENT ]]; then
-    PS1="\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_user_color\]\u@\h\[$sexy_bash_prompt_reset\]"
+    PS1="\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_user_color\]\h\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_preposition_color\] at \
+\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_device_color\]\h\[$sexy_bash_prompt_reset\]"
   else
     PS1="\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_user_color\]\u\[$sexy_bash_prompt_reset\]"
   fi
