@@ -8,6 +8,8 @@ type -t md5sum > /dev/null || alias md5sum="md5"
 # File size
 alias fs="stat -f \"%z bytes\""
 
+## Colorize the ls output ##
+alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias \+='pushd .'
 alias -- -='popd'

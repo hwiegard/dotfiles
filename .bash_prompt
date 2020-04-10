@@ -258,9 +258,13 @@ sexy_bash_prompt_get_git_info () {
 }
 
 # Define the sexy-bash-prompt
-PS1="\[$sexy_bash_prompt_reset\]\
-\[$sexy_bash_prompt_user_color\]\u\[$sexy_bash_prompt_reset\] \
-\[$sexy_bash_prompt_preposition_color\]in\[$sexy_bash_prompt_reset\] \
+  if [[ -n $SSH_CLIENT ]]; then
+    PS1="\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_user_color\]\u@\h\[$sexy_bash_prompt_reset\]"
+  else
+    PS1="\[$sexy_bash_prompt_reset\]\[$sexy_bash_prompt_user_color\]\u\[$sexy_bash_prompt_reset\]"
+  fi
+
+PS1+="\[$sexy_bash_prompt_preposition_color\] in\[$sexy_bash_prompt_reset\] \
 \[$sexy_bash_prompt_dir_color\]\w\[$sexy_bash_prompt_reset\]\
 \$( sexy_bash_prompt_is_on_git && \
   echo -n \" \[$sexy_bash_prompt_preposition_color\]on\[$sexy_bash_prompt_reset\] \" && \
