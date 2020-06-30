@@ -17,6 +17,7 @@ alias \+='pushd .'
 alias -- -='popd'
 alias ..='cd ..'
 alias jpp='python -mjson.tool | pygmentize -l json'
+alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o NUL -s "
 
 ## dcu == Docker-Compose Up
 alias dcu='docker-compose up -d --remove-orphans'
