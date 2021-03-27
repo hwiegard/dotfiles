@@ -20,7 +20,7 @@ alias jpp='python -mjson.tool | pygmentize -l json'
 alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o NUL -s "
 
 ## dcu == Docker-Compose Up
-alias dcu='docker-compose up -d --remove-orphans'
+alias dcu='CURRENT_UID=$(id -u):$(id -g) docker-compose up -d --remove-orphans'
 
 ## dcl == Docker-Compose Logs
 alias dcl='docker-compose logs'
