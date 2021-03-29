@@ -7,7 +7,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="aliases alacritty.yml bash_profile bash_prompt bashrc curl-format.txt exports functions gitconfig gitignore vim vimrc"    # list of files/folders to symlink in homedir
+files="aliases bash_profile bash_prompt bashrc curl-format.txt exports functions gitconfig gitignore vim vimrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -27,4 +27,11 @@ for file in $files; do
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/.$file ~/.$file
+done
+
+kitty_files="kitty.conf colors.conf"    # list of files/folders to symlink in config folder
+mkdir -p ~/.config/kitty
+for file in $kitty_files; do
+    echo "Creating symlink to $file in ~/.config/kitty directory."
+    ln -s $dir/$file ~/.config/kitty/$file
 done
