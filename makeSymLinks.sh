@@ -29,9 +29,8 @@ for file in $files; do
     ln -s $dir/.$file ~/.$file
 done
 
-kitty_files="kitty.conf colors.conf"    # list of files/folders to symlink in config folder
-mkdir -p ~/.config/kitty
-for file in $kitty_files; do
-    echo "Creating symlink to $file in ~/.config/kitty directory."
-    ln -s $dir/$file ~/.config/kitty/$file
+config_files="kitty fish"    # list of files/folders to symlink in config folder
+for config_dir in $config_files; do
+    echo "Creating symlink to $config_dir in ~/.config/ directory."
+    ln -s $dir/.config/$config_dir ~/.config/
 done
