@@ -4,7 +4,7 @@ set nocompatible
 " Set syntax highlighting options.
 set termguicolors
 syntax on
-colorscheme monokai
+colorscheme molokai
 
 " we also allow italic fonts
 let g:monokai_term_italic = 1
