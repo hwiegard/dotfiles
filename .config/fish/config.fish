@@ -16,3 +16,24 @@ alias dcs='docker-compose stop'
 alias dcp='docker-compose ps'
 
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+
+# drcv [FUZZY PATTERN] - Choose a docker container to remove (and associated volumes)
+function drcv 
+    docker ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs docker rm -v
+end
+
+# drc [FUZZY PATTERN] - Choose a docker container to remove
+function drc
+  docker ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs docker rm
+end
+
+# dri [FUZZY PATTERN] - Choose a docker image to remove
+function dri
+  docker images | sed '1d' | fzf -m | awk '{print $3}' | xargs docker rmi
+end
+
+# drv [FUZZY PATTERN] - Choose a docker volume to remove
+function drv 
+  docker volume ls | sed '1d'| fzf -m | awk '{print $2}' | xargs docker volume rm
+end
+
