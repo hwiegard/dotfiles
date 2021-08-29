@@ -1,5 +1,7 @@
 if not command -s rbenv > /dev/null
-    echo "rbenv: command not found. See https://github.com/rbenv/rbenv"
+    if status --is-interactive; 
+        echo "rbenv: command not found. See https://github.com/rbenv/rbenv"
+    end
     exit 1
 end
 
