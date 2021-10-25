@@ -37,3 +37,5 @@ function drv
   docker volume ls | sed '1d'| fzf -m | awk '{print $2}' | xargs docker volume rm
 end
 
+# build the kube config environment variable dynamically
+set -x KUBECONFIG (find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
