@@ -19,23 +19,27 @@ alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-
 
 # drcv [FUZZY PATTERN] - Choose a docker container to remove (and associated volumes)
 function drcv 
-    docker ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs docker rm -v
+    podman ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs podman rm -v
 end
 
 # drc [FUZZY PATTERN] - Choose a docker container to remove
 function drc
-  docker ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs docker rm
+  podman ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs podman rm
 end
 
 # dri [FUZZY PATTERN] - Choose a docker image to remove
 function dri
-  docker images | sed '1d' | fzf -m | awk '{print $3}' | xargs docker rmi
+  podman images | sed '1d' | fzf -m | awk '{print $3}' | xargs podman rmi
 end
 
 # drv [FUZZY PATTERN] - Choose a docker volume to remove
 function drv 
-  docker volume ls | sed '1d'| fzf -m | awk '{print $2}' | xargs docker volume rm
+  podman volume ls | sed '1d'| fzf -m | awk '{print $2}' | xargs podman volume rm
 end
 
 # build the kube config environment variable dynamically
 set -x KUBECONFIG (find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
+
+set -g fish_user_paths "/usr/local/go/bin" fish_user_paths
+set -x  GOPATH   $HOME/GO-lang
+set -x PATH $PATH $GOPATH/bin
