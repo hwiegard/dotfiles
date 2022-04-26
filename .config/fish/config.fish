@@ -43,3 +43,7 @@ set -x KUBECONFIG (find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed '
 set -g fish_user_paths "/usr/local/go/bin" fish_user_paths
 set -x  GOPATH   $HOME/GO-lang
 set -x PATH $PATH $GOPATH/bin
+
+if command -v brew &> /dev/null 
+  set -x RUBY_CONFIGURE_OPTS "--with-readline-dir=(brew --prefix openssl@1.1)"
+end
