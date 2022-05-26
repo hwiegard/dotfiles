@@ -19,22 +19,22 @@ alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-
 
 # drcv [FUZZY PATTERN] - Choose a docker container to remove (and associated volumes)
 function drcv 
-    podman ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs podman rm -v
+    docker ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs docker rm -v
 end
 
 # drc [FUZZY PATTERN] - Choose a docker container to remove
 function drc
-  podman ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs podman rm
+  docker ps -a | sed '1d' | fzf -m | awk '{print $1}' | xargs docker rm
 end
 
 # dri [FUZZY PATTERN] - Choose a docker image to remove
 function dri
-  podman images | sed '1d' | fzf -m | awk '{print $3}' | xargs podman rmi
+  docker images | sed '1d' | fzf -m | awk '{print $3}' | xargs docker rmi
 end
 
 # drv [FUZZY PATTERN] - Choose a docker volume to remove
 function drv 
-  podman volume ls | sed '1d'| fzf -m | awk '{print $2}' | xargs podman volume rm
+  docker volume ls | sed '1d'| fzf -m | awk '{print $2}' | xargs docker volume rm
 end
 
 # build the kube config environment variable dynamically
@@ -47,3 +47,6 @@ set -x PATH $PATH $GOPATH/bin
 if command -v brew &> /dev/null 
   set -x RUBY_CONFIGURE_OPTS "--with-readline-dir=(brew --prefix openssl@1.1)"
 end
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/home/hwiegard/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
