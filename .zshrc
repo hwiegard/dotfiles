@@ -22,9 +22,9 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# ########################
-# Environment variables  #
-# ########################
+# ---------------------------------------------- #
+#             Environment variables              #
+# ---------------------------------------------- #
 #
 export ZDOTDIR=$HOME/.config/zsh
 
@@ -34,6 +34,14 @@ typeset -U PATH path
 
 export GOPATH=$HOME/GO-lang
 export PATH=$PATH:$GOPATH/bin
+
+# ---------------------------------------------- #
+#                     Plugins                    #
+# ---------------------------------------------- #
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+# fix underline in VSCode Terminal
+local znt_history_active_text=reverse
 
 # A glance at the new for-syntax – load all of the above
 # plugins with a single command. For more information see:
@@ -47,16 +55,39 @@ zinit for \
     light-mode \
     pick"async.zsh" \
     src"pure.zsh" \
-  sindresorhus/pure
+  sindresorhus/pure \
+  OMZP::colored-man-pages 
 
-# completions for git
-zi snippet OMZP::git
-zi snippet OMZP::docker-compose/_docker-compose
+
 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light trapd00r/LS_COLORS
+
+autoload -Uz compinit && compinit
+
+# ---------------------------------------------- #
+#                   zsh options                  #
+# ---------------------------------------------- #
+
+# Just to make sure that the options are defined
+setopt append_history
+setopt extended_history
+setopt inc_append_history
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt hist_verify
+setopt share_history
+
+# ---------------------------------------------- #
+#                alias definitions               #
+# ---------------------------------------------- #
 
 # better directory listing (and using exa as a ls replacement)
 alias ls="exa"
