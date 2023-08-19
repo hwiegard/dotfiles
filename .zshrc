@@ -49,8 +49,17 @@ zinit for \
     src"pure.zsh" \
   sindresorhus/pure
 
-# better directory listing
-alias ls="ls --color=auto"
+# completions for git
+zi snippet OMZP::git
+zi snippet OMZP::docker-compose/_docker-compose
+
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
+
+# better directory listing (and using exa as a ls replacement)
+alias ls="exa"
 alias ll='ls -alF'
 
 ## dcu == Docker-Compose Up
