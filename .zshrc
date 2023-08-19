@@ -58,7 +58,7 @@ zinit for \
   sindresorhus/pure \
   OMZP::colored-man-pages 
 
-
+zinit pack"default+keys" for fzf
 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
