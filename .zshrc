@@ -58,12 +58,21 @@ zinit for \
   sindresorhus/pure \
   OMZP::colored-man-pages 
 
+# better colors for ls and also exa. This must be in front of the fzf plugins, otherwise strange issues show up
+zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
+  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+  atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
+zi light trapd00r/LS_COLORS
+
+# fzf for completions
 zinit pack"default+keys" for fzf
 
-zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zinit light trapd00r/LS_COLORS
+zi ice lucid wait has'fzf'
+zi light Aloxaf/fzf-tab
+
+# completions for ripgrep (rg)
+zi ice lucid wait as'completion' blockf has'rg'
+zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
 
 autoload -Uz compinit && compinit
 
