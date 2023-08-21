@@ -56,7 +56,8 @@ zinit for \
     pick"async.zsh" \
     src"pure.zsh" \
   sindresorhus/pure \
-  OMZP::colored-man-pages 
+  OMZP::colored-man-pages \
+  OMZP::rbenv
 
 # better colors for ls and also exa. This must be in front of the fzf plugins, otherwise strange issues show up
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \

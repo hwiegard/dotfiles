@@ -67,5 +67,9 @@
 
 [pull]
     rebase = true
+
+[fetch]
+    pruneTags = true
+
 [init]
 	defaultBranch = main
