@@ -26,6 +26,7 @@ zinit light-mode for \
 #             Environment variables              #
 # ---------------------------------------------- #
 #
+export HISTFILE=~/.zsh_history
 
 # remove duplicat entries from $PATH
 # zsh uses $path array along with $PATH 
@@ -80,6 +81,10 @@ autoload -Uz compinit && compinit
 #                   zsh options                  #
 # ---------------------------------------------- #
 
+# configure history size
+HISTSIZE=500000
+SAVEHIST=500000
+
 # Just to make sure that the options are defined
 setopt append_history
 setopt extended_history
@@ -93,6 +98,13 @@ setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_verify
 setopt share_history
+
+# ---------------------------------------------- #
+#                  key bindings                  #
+# ---------------------------------------------- #
+
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 
 # ---------------------------------------------- #
 #                alias definitions               #
