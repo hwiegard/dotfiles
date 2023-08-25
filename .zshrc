@@ -26,7 +26,6 @@ zinit light-mode for \
 #             Environment variables              #
 # ---------------------------------------------- #
 #
-export ZDOTDIR=$HOME/.config/zsh
 
 # remove duplicat entries from $PATH
 # zsh uses $path array along with $PATH 
@@ -116,3 +115,7 @@ alias dcs='docker-compose stop'
 alias dcp='docker-compose ps'
 
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+
+# light and dark theme switch
+alias light="kitty +kitten themes --reload-in=all Ayu Light"
+alias dark="kitty +kitten themes --reload-in=all Ayu"
