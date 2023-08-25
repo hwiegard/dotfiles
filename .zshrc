@@ -111,8 +111,12 @@ bindkey "^[[F" end-of-line
 # ---------------------------------------------- #
 
 # better directory listing (and using exa as a ls replacement)
-alias ls="exa"
+alias ls='exa'
 alias ll='ls -alF'
+alias la='exa -lbhHigmuSa --time-style=long-iso --color-scale'
+alias lt='exa -l --tree'
+alias llm='exa -lbGF --sort=modified'
+alias lld='exa -lbhHFGmuSa --group-directories-first'
 
 ## dcu == Docker-Compose Up
 alias dcu='CURRENT_UID=(id -u):(id -g) docker-compose up -d --remove-orphans'
