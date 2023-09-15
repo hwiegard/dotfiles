@@ -35,6 +35,9 @@ typeset -U PATH path
 export GOPATH=$HOME/GO-lang
 export PATH=$PATH:$GOPATH/bin
 
+# build the kube config environment variable dynamically
+export KUBECONFIG=$(find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
+
 # ---------------------------------------------- #
 #                     Plugins                    #
 # ---------------------------------------------- #
