@@ -28,15 +28,15 @@ zinit light-mode for \
 #
 export HISTFILE=~/.zsh_history
 
+export GOPATH=$HOME/GO-lang
+path+=($GOPATH/bin)
+
+# build the kube config environment variable dynamically
+[ -d "~/k8s" ] && export KUBECONFIG=$(find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
+
 # remove duplicat entries from $PATH
 # zsh uses $path array along with $PATH 
 typeset -U PATH path
-
-export GOPATH=$HOME/GO-lang
-export PATH=$PATH:$GOPATH/bin
-
-# build the kube config environment variable dynamically
-export KUBECONFIG=$(find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
 
 # ---------------------------------------------- #
 #                     Plugins                    #
