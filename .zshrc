@@ -60,7 +60,8 @@ zinit for \
     src"pure.zsh" \
   sindresorhus/pure \
   OMZP::colored-man-pages \
-  OMZP::rbenv
+  OMZP::rbenv \
+  OMZP::docker-compose
 
 # better colors for ls and also exa. This must be in front of the fzf plugins, otherwise strange issues show up
 zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
@@ -121,20 +122,8 @@ alias lt='exa -l --tree'
 alias llm='exa -lbGF --sort=modified'
 alias lld='exa -lbhHFGmuSa --group-directories-first'
 
-## dcu == Docker-Compose Up
-alias dcu='CURRENT_UID=(id -u):(id -g) docker-compose up -d --remove-orphans'
-
-## dcl == Docker-Compose Logs
-alias dcl='docker-compose logs'
-
-## dcs == Docker-Compose Stop
-alias dcs='docker-compose stop'
-
-## dcp == Docker-Compose process status
-alias dcp='docker-compose ps'
-
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 
 # light and dark theme switch
-alias light="kitty +kitten themes --reload-in=all Ayu Light"
-alias dark="kitty +kitten themes --reload-in=all Ayu"
+alias light="kitty +kitten themes --reload-in=all Ayu Light; export BAT_THEME=ayu-light"
+alias dark="kitty +kitten themes --reload-in=all Ayu; export BAT_THEME=ayu-dark"
