@@ -47,6 +47,3 @@ set -x PATH $PATH $GOPATH/bin
 if command -v brew &> /dev/null 
   set -x RUBY_CONFIGURE_OPTS "--with-readline-dir=(brew --prefix openssl@1.1)"
 end
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "$HOME/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
