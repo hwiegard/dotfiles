@@ -15,3 +15,7 @@ Thumbs.db
 
 # Do not store the plugin in our own repo
 .vim/plugged/
+
+# Ignore the local theme config and backup file for kitty
+.config/kitty/current-theme.conf
+.config/kitty/kitty.conf.bak
