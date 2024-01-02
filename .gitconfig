@@ -10,26 +10,19 @@
 	attributesfile = ~/.gitattributes
 	autocrlf = input
 	editor = vim
-	pager = delta
 
-[interactive]
-    diffFilter = delta --color-only --features=interactive
+[pager]
+    difftool = true
 
-[delta]
-    features = decorations
-    side-by-side = true
-    line-numbers = true
+[diff]
+    tool = difftastic
+	external = difft
 
-[delta "interactive"]
-    keep-plus-minus-markers = false
+[difftool]
+    prompt = false
 
-[delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-style = file line-number syntax
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
 
 [color "branch"]
 	current = yellow reverse
@@ -64,6 +57,9 @@
 
 	# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
 	alias=!git config -l | grep ^alias | cut -c 7- | sort
+
+	
+	dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 
 [pull]
     rebase = true
