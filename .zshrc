@@ -77,7 +77,7 @@ zi light Aloxaf/fzf-tab
 
 # completions for ripgrep (rg)
 zi ice lucid wait as'completion' blockf has'rg'
-zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
+zi snippet https://github.com/BurntSushi/ripgrep/blob/master/crates/core/flags/complete/rg.zsh
 
 autoload -Uz compinit && compinit
 
@@ -115,14 +115,17 @@ bindkey "^[[F" end-of-line
 # ---------------------------------------------- #
 
 # better directory listing (and using exa as a ls replacement)
-alias ls='exa'
+alias ls='eza'
 alias ll='ls -alF'
-alias la='exa -lbhHigmuSa --time-style=long-iso --color-scale'
-alias lt='exa -l --tree'
-alias llm='exa -lbGF --sort=modified'
-alias lld='exa -lbhHFGmuSa --group-directories-first'
+alias la='eza -lbhHigmuSa --time-style=long-iso --color-scale'
+alias lt='eza -l --tree'
+alias llm='eza -lbGF --sort=modified'
+alias lld='eza -lbhHFGmuSa --group-directories-first'
 
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+
+# remap the DEL key for Linux, otherwise only the tilde will be inserted
+bindkey "^[[3~" delete-char
 
 # light and dark theme switch
 alias light="kitty +kitten themes --reload-in=all Ayu Light; export BAT_THEME=ayu-light"
