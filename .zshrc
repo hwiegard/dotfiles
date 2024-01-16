@@ -130,3 +130,5 @@ bindkey "^[[3~" delete-char
 # light and dark theme switch
 alias light="kitty +kitten themes --reload-in=all Ayu Light; export BAT_THEME=ayu-light"
 alias dark="kitty +kitten themes --reload-in=all Ayu; export BAT_THEME=ayu-dark"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
