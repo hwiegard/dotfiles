@@ -31,6 +31,11 @@ export HISTFILE=~/.zsh_history
 export GOPATH=$HOME/GO-lang
 path+=($GOPATH/bin)
 
+if [[ -a /run/user/$UID/docker.sock ]]; then
+    export DOCKER_HOST=unix:///run/user/$UID/docker.sock
+fi
+
+
 # build the kube config environment variable dynamically
 [ -d "~/k8s" ] && export KUBECONFIG=$(find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
 
@@ -130,5 +135,3 @@ bindkey "^[[3~" delete-char
 # light and dark theme switch
 alias light="kitty +kitten themes --reload-in=all Ayu Light; export BAT_THEME=ayu-light"
 alias dark="kitty +kitten themes --reload-in=all Ayu; export BAT_THEME=ayu-dark"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
