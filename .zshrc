@@ -35,6 +35,9 @@ if [[ -a /run/user/$UID/docker.sock ]]; then
     export DOCKER_HOST=unix:///run/user/$UID/docker.sock
 fi
 
+# already configure the fzf layouut
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_COMPLETION_OPTS='--border --info=inline'
 
 # build the kube config environment variable dynamically
 [ -d "~/k8s" ] && export KUBECONFIG=$(find ~/k8s -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
@@ -74,8 +77,8 @@ zi ice atclone'dircolors -b LS_COLORS > clrs.zsh' \
   atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
 zi light trapd00r/LS_COLORS
 
-# fzf for completions
-zinit pack"default+keys" for fzf
+zi ice from"gh-r" as"program"
+zi light junegunn/fzf
 
 zi ice lucid wait has'fzf'
 zi light Aloxaf/fzf-tab
